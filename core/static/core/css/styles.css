@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body{
+    background: #999;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 16pt;
+    text-align: center;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    box-shadow: 1px 1px 10px black;
+    margin: 3%;
+    padding: 5% 20%;
+}
+
+.botao_submissao{
+    background: #def2f1;
+}
+
+.formulario div{
+    width: 100%;
+}
+
+nav{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li{
+    background-color: #8d4934;
+    padding: 10px 16px;
+    transition: 1s;
+    border-radius: 10px;
+}
+
+nav ul li:hover{
+    transform: scale(1.2, 1.2);
+}
+
+nav ul li a{
+    color: #fff;
+}
+
+.lista_links{
+    margin-top: 50px;
+}
+
+.lista_links ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.lista_links ul li{
+    background: #d59885;
+    padding: 10px 16px;
+    transition: 1s;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.lista_links ul a{
+    color: #fff;
+}
+
+#input-pessoa-fisica{
+    display: none;
+}
+
+#input-pessoa-juridica{
+    display: none;
+}
+

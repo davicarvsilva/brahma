@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+    <form action="" method="post" class="formulario form-group">
+        {% csrf_token %}
+        
+        <h1>Cadastro de itens e produtos</h1>
+
+        <div class="form-group">
+            {{ form.descricao | as_crispy_field }}
+        </div>
+        <div class="form-group">
+            {{ form.qtd_estoque | as_crispy_field }}
+        </div>
+        
+        <button type="submit" class="btn botao_submissao mt-4">Salvar</button>
+    </form>
+{% endblock %}

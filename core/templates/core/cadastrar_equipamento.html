@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+    <form action="" method="post" class="formulario form-group">
+        {% csrf_token %}
+        
+        <h1>Cadastro de equipamento para uso</h1>
+
+        <div class="form-group">
+            {{ form.nome | as_crispy_field }}
+        </div>
+        <div class="form-group">
+            {{ form.status| as_crispy_field }}
+        </div>
+        
+        <button type="submit" class="btn botao_submissao mt-4">Salvar</button>
+
+        <button type="button" class="btn mt-5" data-toggle="collapse" data-target="#equipamentos_salvos">Mostrar Equipamentos salvos</button>
+
+        <div class="collapse" id="equipamentos_salvos">
+            <table border=1 class="table table-dark mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Equipamento</th>
+                        <th scope="col">Status do Equipamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for equipamento in equipamentos %}
+                        <tr>
+                            <th scope="row">#</th>
+                            <td>{{ equipamento.nome }}</td>
+                            {% if equipamento.status == 'DI'%}
+                                <td>Disponível</td>
+                            {% elif equipamento.status == 'OC'%}
+                                <td>Ocupado</td>
+                            {% else %}
+                                <td>Defeito</td>
+                            {% endif %}
+            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+{% endblock %}

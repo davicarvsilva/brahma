@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="lista_links">
+        <ul>
+            <a href="{% url 'core:cadastrarPessoaFisica' %}"><li>Cadastrar Pessoa Física</li></a>
+            <a href="{% url 'core:cadastrarPessoaJuridica' %}"><li>Cadastrar Pessoa Jurídica</li></a>
+            <a href="{% url 'core:cadastrarEquipamento' %}"><li>Cadastrar equipamento</li></a>
+            <a href="{% url 'core:cadastrarItem' %}"><li>Cadastrar item</li></a>
+            <a href="{% url 'core:cadastrarOrdemServico' %}"><li>Ordem de Serviço</li></a>
+            <a href="{% url 'core:consultarClientes' %}"><li>Consultar Clientes</li></a>
+        </ul>
+    </div>
+{% endblock%}
+

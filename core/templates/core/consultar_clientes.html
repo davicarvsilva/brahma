@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="ml-5 mr-5">
+    <table border=1 class="table table-dark mt-5">
+        <caption>Pessoas Física</caption>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Data de instalação</th>
+                <th scope="col">Equipamentos com cliente</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa_fisica in clientes_pessoa_fisica %}
+                <tr>
+                    <th scope="row">#</th>
+                    <td><a href="">{{ pessoa_fisica.nome }}</a></td>
+                    <td>{{ pessoa_fisica.celular}}</td>
+                    <td>{{ pessoa_fisica.data_instalacao }}</td>
+                    <td>
+                        {% for ordem_servico in pessoa_fisica.ordemservico_set.all %}
+                            {% for equipamento in ordem_servico.equipamento.all %}
+                                {{ equipamento.nome }}
+                                <br>
+                            {% endfor %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table border=1 class="table table-dark mt-5">
+        <caption>Pessoas Jurídica</caption>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Razão Social</th>
+                <th scope="col">Nome Fantasia</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Nome do Contato</th>
+                <th scope="col">Data da Instalação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa_juridica in clientes_pessoa_juridica %}
+                <tr>
+                    <th scope="row">#</th>
+                    <td><a href="">{{ pessoa_juridica.razao_social }}</a></td>
+                    <td>{{ pessoa_juridica.nome_fantasia }}</td>
+                    <td>{{ pessoa_juridica.cnpj }}</td>
+                    <td>{{ pessoa_juridica.celular }}</td>
+                    <td>{{ pessoa_juridica.nome_contato }}</td>
+                    <td>{{ pessoa_juridica.data_instalacao }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

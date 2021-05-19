@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+    <form action="" method="post" class="formulario form-group">
+        {% csrf_token %}
+        
+        <h1>Cadastro de Ordem de Serviço</h1>
+
+        <button type="button" class="btn mt-3" onclick="ativarInputPessoaFisica()">Pessoa Fisica</button>
+        <button type="button" class="btn mt-3 mb-3" onclick="ativarInputPessoaJuridica()">Pessoa Juridica</button>
+
+        <div class="form-group" id="input-pessoa-fisica">
+            {{ form.pessoa_fisica | as_crispy_field }}
+            {{ form.pessoa_fisica.errors }}
+        </div>
+
+        <div class="form-group" id="input-pessoa-juridica">
+            {{ form.pessoa_juridica | as_crispy_field }}
+            {{ form.pessoa_juridica.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.dia | as_crispy_field }}
+        </div>
+
+        <div class="form-group">
+            {{ form.descricao | as_crispy_field }}
+            {{ form.descricao.errors }}
+        </div>
+
+        <div class="form-group">
+            <small>Equipamentos</small>
+            
+            {% for value, text in form.equipamento.field.choices %}
+                <div style="display: flex; justify-content: flex-start;">
+                    <input type="checkbox" name="equipamento" id="id_equipamento_{{value}}" value="{{value}}" class="form-control">
+                    <div>{{ text }}</div>
+                </div>
+            {% endfor %}
+            
+        </div>
+
+        <div class="form-group">
+            {{ form.itens | as_crispy_field }}
+        </div>
+
+        <div class="assepsia">
+            {{ form.assepsia | as_crispy_field }}
+        </div>
+        
+        <button type="submit" class="btn botao_submissao mt-4">Salvar</button>
+    </form>
+{% endblock %}
